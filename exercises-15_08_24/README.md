@@ -1,0 +1,1 @@
+# Exercises Solutions from August 15 2024
