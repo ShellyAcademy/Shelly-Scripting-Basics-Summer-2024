@@ -1,0 +1,30 @@
+The following steps will help you create simple rest-api server with nodejs + expressjs:
+
+1. Create a directory for your app (e.g. rest-api)
+2. cd to the directory
+3. Run `npm init`. Type your app name and other parameters
+4. Install dependencies with:
+  - `npm install express` - the main module to create rest api servers
+  - `npm install nodemailer` - nodemailer module to send emails using smtp protocol
+  - `npm install axios` - to be able to create client HTTP requests to other APIs
+5. Dependencies will be automatically added to package.json. Later, when using the app `npm install` is only needed to install all the dependencies
+6. Create `index.js`
+7. Simple example for a `get` endpoint to return simple status (look at other examples for api requests and smtp mailer):
+
+const express = require("express");
+
+const app = express();
+app.use(express.json());
+
+const port = 3000;
+
+app.listen(port, function() {
+    console.log("Server start on port", port)
+});
+
+app.get("/status", function(request, response) {
+    console.log(request);
+    let resp = { "status": "running"};
+    response.send(resp);
+});
+
